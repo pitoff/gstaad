@@ -87,7 +87,7 @@
 				</a>
 
 				
-				<a href="<?php echo URLROOT;?>/users/dashboard">
+				<a href="<?php echo URLROOT;?>/users/recentcredit/<?php echo $_SESSION['user_id'];?>">
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<div class="info-box brown-bg">
 						<i class="fa fa-plus"></i>
