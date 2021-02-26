@@ -175,7 +175,7 @@
                   <div>
                     <h3>Bank Loan</h3>
                     <p>We offer bank loan to qualified individuals. Signing up is the first step to acquire a loan. Request a loan through Gstaad loan service provider</p>
-                    <p class="mb-0"><a href="<?php echo URLROOT;?>/users/signup">Sign up</a></p>
+                    <p class="mb-0"><a href="<?php echo URLROOT;?>/users/login">Sign in</a></p>
                   </div>
                 </div>
               </div>
@@ -185,7 +185,7 @@
                   <div>
                     <h3>Banking Consulation </h3>
                     <p>Gstaad banking experts are available for 24/7 consultation, booking a date for consult just got easier.</p>
-                    <p class="mb-0"><a href="<?php echo URLROOT;?>/users/signup">Sign up</a></p>
+                    <p class="mb-0"><a href="<?php echo URLROOT;?>/users/login">Sign in</a></p>
                   </div>
                 </div>
               </div>
