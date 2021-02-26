@@ -335,6 +335,87 @@
 			$this->view('users/allusers', $data);
 		}
 
+		public function allsendmoney(){
+			if (!isLoggedIn()) {
+				redirect('users');
+			}
+			$users = $this->userModel->allUsers();
+
+			$data = [
+				'users' => $users
+			];
+
+			$this->view('users/allsendmoney', $data);
+		}
+
+		public function sendmoney($id){
+			if (!isLoggedIn()) {
+				redirect('users/index');
+			}
+			$tracknum = '0123456789ABcdefGHijklMNopqrSTuvwxYZ';
+			$result = substr(str_shuffle($tracknum), 0, 9);
+			if ($_SERVER['REQUEST_METHOD'] == 'POST') {		
+				$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+				$data = [
+					'id' => $id,
+					'tid' => trim($_POST['tid']),
+					'sender' => trim($_POST['sender']),
+					'sender_bank' => trim($_POST['sender_bank']),
+					'amount' => trim($_POST['amount']),
+					'acc_num' => trim($_POST['acc_num']),
+					'dod' => trim($_POST['dod']),
+					'id_err' => '',
+					'tid_err' => '',
+					'sender_err' => '',
+					'amount_err' => '',
+					'dod_err' => ''
+				];
+				if (empty($data['amount'])) {
+					$data['amount_err'] = 'Please enter amount';
+				}
+				if (empty($data['sender'])) {
+					$data['sender_err'] = 'Please enter sender name';
+				}
+				if (empty($data['sender_bank'])) {
+					$data['sender_bank_err'] = 'Please enter sender bank';
+				}
+				if (empty($data['acc_num'])) {
+					$data['acc_num_err'] = 'enter destination account';
+				}
+
+				if (empty($data['amount_err']) && (empty($data['sender_err'])) && empty($data['sender_bank_err']) && empty($data['acc_num_err'])) {
+					if ($this->userModel->creditacc($data) && $this->userModel->updatecredit($data)) {
+						flash('credited', 'money has been sent');
+						redirect('users/dashboard');
+					}else{
+						die('something went wrong');
+					}
+				}else{
+					$this->view('users/sendmoney', $data);
+				}
+
+				}else{	
+					$user = $this->userModel->getUserById($id);				
+					$data = [
+						'id' => $user->id,
+						'tid' => $result,
+						'sender' => '',
+						'amount' => '',
+						'sender_bank' => '',
+						'acc_num' => '',
+						'dod' => '',
+						'id_err' => '',
+						'tid_err' => '',
+						'sender_err' => '',
+						'amount_err' => '',
+						'sender_bank_err' => '',
+						'acc_num_err' => '',
+						'dod_err' => ''
+					];
+					$this->view('users/sendmoney', $data);
+				}
+		}
+
 		public function deleteuser($id){
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$user = $this->userModel->getUserById($id);
@@ -904,6 +985,20 @@
 			];
 
 			$this->view('users/debit', $data);
+		}
+
+		public function recentcredit($id){
+			if (!isLoggedIn()) {
+				redirect('users');
+			}
+			$user = $this->userModel->getUserById($id);
+			$rcredit = $this->userModel->viewcredit($user->id);
+			$data = [
+				'user' => $user,
+				'rcredit' => $rcredit
+			];
+
+			$this->view('users/recentcredit', $data);
 		}
 
 		public function updateaccstatus($id){
