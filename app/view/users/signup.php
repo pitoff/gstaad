@@ -1,10 +1,8 @@
 <style type="text/css">
   #signup{
-
   background: url('../NiceAdmin/img/home.jpg') no-repeat center center fixed !important;
   width: 100%;
   color: #fff;
-
 }
 </style>
 <?php require APPROOT .'/view/include/bheader'. '.php';?>
