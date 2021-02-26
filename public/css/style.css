@@ -1,0 +1,42 @@
+.signup{
+	text-align: center;
+	font-family: ;
+}
+.signup p{
+	color: #316186;
+}
+.register{
+	background-image: url("../image/call-to-action-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.regopacity{
+	opacity: 0.8;
+}
+.signup hr{
+	background: #316186;
+	font-size: 3px;
+}
+#navstyle{
+	background: #14614f !important;
+}
+#btnstyle{
+	background: #115644 !important;
+}
+#btnstyle:hover{
+	background: #1a6463 !important;
+}
+.btn-primary{
+	background: #115644 !important;
+	border: none !important;
+}
+.btn-primary:hover{
+	background: #1a6463 !important;
+}
+#create h4{
+	text-align: center;
+}
+#create hr{
+	background: #316186;
+	font-size: 3px;
+}
