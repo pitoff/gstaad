@@ -6,14 +6,6 @@
   height: 100%;
   color: #fff;
 
-  -webkit-background-size: cover;
-
-  -moz-background-size: cover;
-
-  -o-background-size: cover;
-
-  background-size: cover;
-
 }
 </style>
 <?php require APPROOT .'/view/include/bheader'. '.php';?>
@@ -59,79 +51,7 @@
                                           <div class="">
                                               <input class="form-control <?php echo (!empty($data['confirm_password_err'])) ? 'is-invalid' : ''; ?>" id="subject" name="confirm_password" value="<?php echo $data['confirm_assword'];?>" minlength="5" type="password" required /><span class="invalid-feedback" style="color:red;"><?php echo $data['confirm_password_err'];?></span>
                                           </div>
-                                      </div>
-                                      <!-- <div class="form-group">
-                                          <label for="cemail" class="control-label">Country<span class="required">*</span></label>
-                                          <div class="">
-                                              <input class="form-control <?php echo (!empty($data['country_err'])) ? 'is-invalid' : ''; ?>" id="cemail" type="text" name="country" value="<?php echo $data['country'];?>" required /><span class="invalid-feedback" style="color:red;"><?php echo $data['country_err'];?></span>
-                                          </div>
-                                      </div>
-                                      <div class="form-group">
-                                          <label for="cemail" class="control-label">State<span class="required">*</span></label>
-                                          <div class="">
-                                              <input class="form-control <?php echo (!empty($data['state_err'])) ? 'is-invalid' : ''; ?>" id="cemail" type="text" name="state" value="<?php echo $data['state'];?>" required /><span class="invalid-feedback" style="color:red;"><?php echo $data['state_err'];?></span>
-                                          </div>
-                                      </div>
-                                    <div class="form-group">
-                                    <label for="image" class="control-label">Image:</label>
-                                    <div class="">
-                                                <input type="file" id="" name="photo" multiple="multiple/*" class="<?php echo (!empty($data['photo_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['photo'];?>">
-                                                <span class="invalid-feedback"><?php echo $data['photo_err'];?></span>
-                                              </div>
-                                         </div>
-                                   <div class="form-group">
-                                     <label for="image" class="control-label">Gender:</label>
-                                     <div class="">
-                                      <input type="radio" value="male" name="gender"> Male &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" value="female" name="gender"> Female<br>
-                                     </div>
-                                           </div>
-                                       <div class="form-group">
-                                          <label for="cemail" class="control-label">DOB<span class="required">*</span></label>
-                                          <div class="">
-                                              <input class="form-control <?php echo (!empty($data['dob_err'])) ? 'is-invalid' : ''; ?>" id="cemail" type="date" name="dob" value="<?php echo $data['dob'];?>" required /><span class="invalid-feedback" style="color:red;"><?php echo $data['dob_err'];?></span>
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="cemail" class="control-label">Occupation<span class="required">*</span></label>
-                                          <div class="">
-                                              <input class="form-control <?php echo (!empty($data['occupation_err'])) ? 'is-invalid' : ''; ?>" id="cemail" type="text" name="occupation" value="<?php echo $data['occupation'];?>" required /><span class="invalid-feedback" style="color:red;"><?php echo $data['occupation_err'];?></span>
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="status" class="control-label">Status<span class="required">*</span></label>
-                                            <div class="">
-                                            <select name="status" class="form-control">
-                                                <option value="single">Single</option>
-                                                <option value="divorced">Divorced</option>
-                                                <option value="married">Married</option>
-                                            </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="cemail" class="control-label">Mother's name<span class="required">*</span></label>
-                                          <div class="">
-                                              <input class="form-control <?php echo (!empty($data['mname_err'])) ? 'is-invalid' : ''; ?>" id="cemail" type="text" name="mname" value="<?php echo $data['mname'];?>" required /><span class="invalid-feedback" style="color:red;"><?php echo $data['mname_err'];?></span>
-                                          </div>
-                                        </div> 
-                                        
-                                        <div class="form-group">
-                                          <label for="cemail" class="control-label">AccNumber<span class="required">*</span></label>
-                                          <div class="">
-                                              <input class="form-control <?php echo (!empty($data['acc_num_err'])) ? 'is-invalid' : ''; ?>" id="cemail" type="text" name="acc_num" value="<?php echo $data['acc_num'];?>" required /><span class="invalid-feedback" style="color:red;"><?php echo $data['acc_num_err'];?></span>
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="cemail" class="control-label">AccPin<span class="required">*</span></label>
-                                          <div class="">
-                                              <input class="form-control <?php echo (!empty($data['pin_err'])) ? 'is-invalid' : ''; ?>" id="cemail" type="text" name="pin" value="<?php echo $data['pin'];?>" required /><span class="invalid-feedback" style="color:red;"><?php echo $data['pin_err'];?></span>
-                                          </div>
-                                        </div>   
-                                      <div class="form-group">
-                                          <label for="cemail" class="control-label">NextOfKin<span class="required">*</span></label>
-                                          <div class="">
-                                              <input class="form-control <?php echo (!empty($data['nok_err'])) ? 'is-invalid' : ''; ?>" id="cemail" type="text" name="nok" value="<?php echo $data['nok'];?>" required /><span class="invalid-feedback" style="color:red;"><?php echo $data['nok_err'];?></span>
-                                          </div>
-                                        </div>                            -->                                                  
+                                    </div>                                                
                                       <div class="form-group">
                                           <div class="">
                                               <button class="btn btn-primary" type="submit">Save</button>
@@ -142,6 +62,7 @@
 
                           </div>
                       </section>
+                  <hr>
 
     </div>
     </div>
