@@ -3,7 +3,6 @@
 
   background: url('../NiceAdmin/img/home.jpg') no-repeat center center fixed !important;
   width: 100%;
-  height: 100%;
   color: #fff;
 
 }
@@ -67,3 +66,4 @@
     </div>
     </div>
   </div>
+<?php require APPROOT .'/view/include/bfooter'. '.php';?>
