@@ -34,11 +34,12 @@
                               <p><span class="detailstyle">Account Number: <?php echo $all->acc_num;?></span></p>
                               <p><span class="detailstyle">Current Balance: &#36;<?php echo number_format($all->current_bal, 2);?></span></p>
                               <p><span class="detailstyle">Available Balance: &#36;<?php echo number_format($all->available_bal, 2);?></span></p>
-                              <p><span class="detailstyle">Last credit transaction: <?php echo $all->dod;?></span></p>
+                              
                               
                               </div>
                             <?php endif;?>
                           	<?php endforeach;?>
+			      <p><span class="detailstyle">Last credit transaction: <?php echo $data['lastcredit']->cdate;?></span></p>
                           <p>
                           <?php if(($data['exist'])):?>
 	                           <a href="<?php echo URLROOT;?>/users/transferpin"><button class="btn btn-primary" type="submit" style="margin-top: 10px;">Transfer Funds</button></a>
