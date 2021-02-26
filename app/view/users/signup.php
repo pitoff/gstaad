@@ -2,7 +2,7 @@
   #signup{
   background: url('../NiceAdmin/img/home.jpg') no-repeat center center fixed !important;
   width: 100%;
-  color: #fff;
+  color: ;
 }
 </style>
 <?php require APPROOT .'/view/include/bheader'. '.php';?>
