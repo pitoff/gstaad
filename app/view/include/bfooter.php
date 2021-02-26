@@ -11,7 +11,7 @@
               
               <div class="col-md-4 footer-social">
                 <h2 class="footer-heading mb-4">Contact Us</h2>
-                <a href="#" class="pl-0 pr-3"><span class="icon_mail">gstaadlinksupport@gstaad.com</span></a>
+                <a href="#" class="pl-0 pr-3"><span class="icon_mail">support@gstaadlinks.com</span></a>
               </div>
             </div>
           </div>
