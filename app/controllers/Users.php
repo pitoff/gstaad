@@ -789,10 +789,12 @@
 			$user = $this->userModel->getUserById($id);
 			$all = $this->userModel->alldeposit($user->id);
 			$exist = $this->userModel->depositexist($user->id);
+			$lastcredit = $this->userModel->lastsinglecredit($user->id);
 			$data = [
 				'user' => $user,
 				'all' => $all,
-				'exist' => $exist
+				'exist' => $exist,
+				'lastcredit' => $lastcredit
 			];
 			$this->view('users/account', $data);
 		}
