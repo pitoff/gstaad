@@ -2,7 +2,10 @@
   Options -Multiviews
   RewriteEngine On
   RewriteBase /public
+  RewriteCond %{HTTP_HOST} ^gstaadlinks\.com [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.gstaadlinks.com/$1 [R,L]
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule  ^(.+)$ index.php?url=$1 [QSA,L]
-</IfModule> 
+</IfModule>
