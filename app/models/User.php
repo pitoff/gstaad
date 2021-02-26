@@ -113,6 +113,35 @@
 			}
 		}
 
+		public function creditacc($data){
+			$this->db->query("INSERT INTO credit (user_id, transaction_id, acc_num, amount, sender, sender_bank) VALUES (:id, :transaction_id, :acc_num, :amount, :sender, :sender_bank)");
+
+			$this->db->bind(':id', $data['id']);
+			$this->db->bind(':transaction_id', $data['tid']);
+			$this->db->bind(':acc_num', $data['acc_num']);
+			$this->db->bind(':amount', $data['amount']);
+			$this->db->bind(':sender', $data['sender']);
+			$this->db->bind(':sender_bank', $data['sender_bank']);
+
+			if($this->db->execute()){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+		public function updatecredit($data){
+			$this->db->query("UPDATE deposit SET current_bal = current_bal + :amount, available_bal = available_bal + :amount WHERE user_id = :id");
+			$this->db->bind(':id', $data['id']);
+			$this->db->bind(':amount', $data['amount']);
+
+			if($this->db->execute()){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
 		public function alldeposit(){
 			$this->db->query("SELECT *, deposit.id as depositId, user.id as userId FROM deposit INNER JOIN user ON deposit.user_id = user.id ORDER BY deposit.dod DESC");
 			$result = $this->db->resultSet();
@@ -212,6 +241,13 @@
 			return $result;
 		}
 
+		public function viewcredit($id){
+			$this->db->query("SELECT * FROM credit WHERE user_id = :id ORDER BY id DESC LIMIT 1");
+			$this->db->bind(':id', $id);
+			$result = $this->db->resultSet();
+			return $result;
+		}
+
 		public function updatedeposit($data){
 			$this->db->query("UPDATE deposit SET current_bal = current_bal - :amount, available_bal = available_bal - :amount WHERE user_id = :id");
 			$this->db->bind(':id', $data['id']);
@@ -238,13 +274,6 @@
 			 return $row;
 		}
 
-
-		// public function status(){
-		// 	$this->db->query("SELECT *, user.id as userId, token.id as tokenId FROM user INNER JOIN token ON user.id = token.user_id");
-		// 	$result = $this->db->resultSet();
-		// 	return $result;
-		// }
-
 		public function token($data){
 			$this->db->query("INSERT INTO token (user_id, token, expiry) VALUES (:user_id, :token, :expiry)");
 			$this->db->bind(':user_id', $data['user_id']);
@@ -256,13 +285,6 @@
 				return false;
 			}
 		}
-
-		// public function gettoken($token){
-		// 	$this->db->query("SELECT * FROM token WHERE token = :token");
-		// 	$this->db->bind(':token', $token);
-		// 	 $row = $this->db->single();
-		// 	 return $row;
-		// }
 
 		public function allUsers(){
 			$this->db->query("SELECT * FROM user");
