@@ -38,7 +38,7 @@
                                   <th>status</th>
                                   <th>activate</th>
                                   <th>deactivate</th>
-                                  <th>clear credit</th>
+                                  
                                   <th>Remove</th>
                               </tr>
                               </thead>
@@ -78,11 +78,7 @@
                                        <?php endif;?>
                                     </form>
                                   </td>
-                                  <td>
-                                  <form action="<?php echo URLROOT;?>/users/clearcredit/<?php echo $users->id;?>" method="POST">
-                                    <button class="btn btn-primary" type="submit">clear acc</button>
-                                  </form>
-                                  </td>
+                                  
                                   <td>
 	                                <form action="<?php echo URLROOT;?>/users/deleteuser/<?php echo $users->id;?>" method="POST">
 	  									          <button type="submit" style="border: none; margin-left: 20px;"><span class="icon_trash_alt" style="color: red;"></span></button>
