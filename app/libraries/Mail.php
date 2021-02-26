@@ -27,15 +27,15 @@ class Mail
             //Server settings
             $this->mail->SMTPDebug = SMTP::DEBUG_OFF;                      //Enable verbose debug output
             $this->mail->isSMTP();                                            //Send using SMTP
-            $this->mail->Host       = 'mail.seagullshipmentbd.com';                     //Set the SMTP server to send through
+            $this->mail->Host       = 'mail.gstaadlinks.com';                     //Set the SMTP server to send through
             $this->mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $this->mail->Username   = 'pit@seagullshipmentbd.com';                     //SMTP username
-            $this->mail->Password   = '123@#$';                               //SMTP password
+            $this->mail->Username   = 'support@gstaadlinks.com';                     //SMTP username
+            $this->mail->Password   = 'Pitoff@gstaad';                               //SMTP password
             $this->mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
             $this->mail->Port       = 465;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
             //Recipients
-            $this->mail->setFrom('pit@seagullshipmentbd.com', SITENAME);
+            $this->mail->setFrom('support@gstaadlinks.com', SITENAME);
             $this->mail->addAddress($this->receiver);               //Name is optional
 
             //Content
