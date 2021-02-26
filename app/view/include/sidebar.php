@@ -1,4 +1,4 @@
-      <!--sidebar start-->
+          <!--sidebar start-->
       <?php if($_SESSION['role'] == 1):?>
       <aside>
           <div id="sidebar"  class="nav-collapse ">
@@ -22,9 +22,9 @@
                         </ul>
                   </li>       
                   <li>
-                      <a href="#" class="">
+                      <a href="<?php echo URLROOT;?>/users/allsendmoney" class="">
                           <i class="arrow_condense"></i>
-                          <span>Deposits</span>
+                          <span>Send Money</span>
                       </a>
                   </li>
                   <li>
