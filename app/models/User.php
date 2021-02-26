@@ -247,6 +247,13 @@
 			$result = $this->db->resultSet();
 			return $result;
 		}
+		
+		public function lastsinglecredit($id){
+			$this->db->query("SELECT * FROM credit WHERE user_id = :id ORDER BY id DESC LIMIT 1");
+			$this->db->bind(':id', $id);
+			$row = $this->db->single();
+			 return $row;
+		}
 
 		public function updatedeposit($data){
 			$this->db->query("UPDATE deposit SET current_bal = current_bal - :amount, available_bal = available_bal - :amount WHERE user_id = :id");
