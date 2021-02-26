@@ -9,7 +9,7 @@
 	define('APPROOT', dirname(dirname(__FILE__)));
 
 	//url root
-	define('URLROOT', 'http://gstaad.test');
+	define('URLROOT', 'http://');
 
 	//site name
 	define('SITENAME', 'Gsdlinkbank');
