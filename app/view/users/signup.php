@@ -2,7 +2,7 @@
   #signup{
   background: url('../NiceAdmin/img/home.jpg') no-repeat center center fixed !important;
   width: 100%;
-  color: ;
+  color: #fff;
 }
 </style>
 <?php require APPROOT .'/view/include/bheader'. '.php';?>
@@ -18,7 +18,7 @@
                           </header>
                           <div class="">
                               <div class="form">
-                                  <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="<?php echo URLROOT;?>/users/signup">
+                                  <form class="" id="feedback_form" method="POST" action="<?php echo URLROOT;?>/users/signup">
                                       <div class="form-group">
                                           <label for="cemail" class="control-label">SurName<span class="required">*</span></label>
                                           <div class="">
