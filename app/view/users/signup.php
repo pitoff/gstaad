@@ -13,13 +13,12 @@
     <div class="row">
     <div id="signup">
     <div class="col-md-6 mx-auto" style="margin-top: 120px; opacity: 0.8;">
-
-                    <section class="panel">
-                          <header class="panel-heading">
+      
+                          <header class="">
                               <h4 style="text-align: center;">Get started</h4>
                               <p style="text-align: center;">create a new account with <?php echo SITENAME;?></p>
                           </header>
-                          <div class="panel-body">
+                          
                               <div class="form">
                                   <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="<?php echo URLROOT;?>/users/signup">
                                       <div class="form-group">
@@ -59,13 +58,12 @@
                                       </div>
                                   </form>
                               </div>
-
-                          </div>
-                      </section>
-                  <hr>
+                      
+                  
 
     </div>
     </div>
     </div>
   </div>
+<hr>
 <?php require APPROOT .'/view/include/bfooter'. '.php';?>
