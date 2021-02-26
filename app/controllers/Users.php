@@ -840,7 +840,7 @@
 						$fn = $_SESSION['firstname'];
 						// $this->mail->send('OTP', 'Dear '. $name .' '.$fn .'<br> '. $data['token']. ' is your transaction OTP <br> it expires after 5 mins <br> from ' .URLROOT, $data['email']);
 
-						$this->mail->receiver = $_SESSION['email'];
+						$this->mail->receiver = $data['email'];
 				        $this->mail->subject = "Token";
 				        $template = $this->mail->template();
 				        $this->mail->body = $this->mail->inject($template, SITENAME, "Transaction OTP", $name .' '.$fn, $data['token']. " is the OTP generated to complete your transaction. <br> Note this token expires after 300 seconds of inactivity", URLROOT);
