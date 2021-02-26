@@ -13,12 +13,13 @@
     <div class="row">
     <div id="signup">
     <div class="col-md-6 mx-auto" style="margin-top: 120px; opacity: 0.8;">
-      
-                          <header class="">
+
+                    <section class="panel">
+                          <header class="panel-heading">
                               <h4 style="text-align: center;">Get started</h4>
                               <p style="text-align: center;">create a new account with <?php echo SITENAME;?></p>
                           </header>
-                          
+                          <div class="panel-body">
                               <div class="form">
                                   <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="<?php echo URLROOT;?>/users/signup">
                                       <div class="form-group">
@@ -50,7 +51,7 @@
                                           <div class="">
                                               <input class="form-control <?php echo (!empty($data['confirm_password_err'])) ? 'is-invalid' : ''; ?>" id="subject" name="confirm_password" value="<?php echo $data['confirm_assword'];?>" minlength="5" type="password" required /><span class="invalid-feedback" style="color:red;"><?php echo $data['confirm_password_err'];?></span>
                                           </div>
-                                    </div>                                                
+                                      </div>                                                  
                                       <div class="form-group">
                                           <div class="">
                                               <button class="btn btn-primary" type="submit">Save</button>
@@ -58,12 +59,11 @@
                                       </div>
                                   </form>
                               </div>
-                      
-                  
+
+                          </div>
+                      </section>
 
     </div>
     </div>
     </div>
   </div>
-<hr>
-<?php require APPROOT .'/view/include/bfooter'. '.php';?>
