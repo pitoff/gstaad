@@ -33,9 +33,7 @@
           <div class="col">
             <input type = "submit" id="btnstyle" value = "Login" class="btn btn-success btn-block">
           </div>
-          <div class="col">
-            <a href="<?php echo URLROOT;?>/users/signup" class = "btn btn-light btn-block">New account</a>
-          </div>
+          
         </div>
       </form>
 
