@@ -32,7 +32,7 @@
                     </li>
                   </ul> -->
                   <li><a href="<?php echo URLROOT;?>/users/login" class="nav-link">Sign in</a></li>
-                  <li><a href="<?php echo URLROOT;?>/users/signup" class="nav-link">Create Account</a></li>
+                  <li><a href="#footer-section" class="nav-link">Contact email</a></li>
                
                 
               </ul>
