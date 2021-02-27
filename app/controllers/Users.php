@@ -560,7 +560,8 @@ class Users extends Controller
             }
 
             if (empty($data['surname_err']) && empty($data['firstname_err']) && empty($data['email_err']) && empty($data['country_err']) && empty($data['state_err']) && empty($data['photo_err']) && empty($data['gender_err']) && empty($data['dob_err']) &&(empty($data['mname_err'])) && (empty($data['acc_num_err'])) && (empty($data['pin_err'])) && (empty($data['occupation_err'])) && empty($data['nok_err'])) {
-                    $reg = $this->userModel->updateuser($data);
+                $data['pin'] = password_hash($data['pin'], PASSWORD_DEFAULT);    
+                $reg = $this->userModel->updateuser($data);
                     $move = $this->upload();
                 if ($reg && $move) {
                     redirect('users/allusers');
