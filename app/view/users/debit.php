@@ -40,8 +40,8 @@
                               <tbody>
                               <tr>
                                   <td><?php echo $debit->transaction_id;?></td>
-                                  <td><?php echo $debit->acc_name;?></td>
                                   <td><?php echo $debit->acc_num;?></td>
+                                  <td><?php echo $debit->acc_name;?></td>
                                   <td> &#36;<?php echo number_format($debit->amount, 2);?></td>
                                   <td><?php echo $debit->bank;?></td>
                                   <td><?php echo $debit->tdate;?></td>
