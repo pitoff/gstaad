@@ -974,7 +974,7 @@
                 data = {
                     fileInput: $(e.target),
                     form: $(e.target.form)
-                };
+            };
             this._getFileInputFiles(data.fileInput).always(function (files) {
                 data.files = files;
                 if (that.options.replaceFileInput) {

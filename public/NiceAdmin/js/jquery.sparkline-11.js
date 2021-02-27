@@ -366,7 +366,7 @@
             'text-align: left;' +
             '}';
 
-    initStyles = function() {
+    initStyles = function () {
         addCSS(defaultStyles);
     };
 
@@ -446,10 +446,13 @@
                     if (options.get('numberFormatter')) {
                         fieldvalue = options.get('numberFormatter')(fieldvalue);
                     } else {
-                        fieldvalue = formatNumber(fieldvalue, prec,
+                        fieldvalue = formatNumber(
+                            fieldvalue,
+                            prec,
                             options.get('numberDigitGroupCount'),
                             options.get('numberDigitGroupSep'),
-                            options.get('numberDecimalMark'));
+                            options.get('numberDecimalMark')
+                        );
                     }
                 }
                 return fieldvalue;
@@ -458,7 +461,7 @@
     });
 
     // convience method to avoid needing the new operator
-    $.spformat = function(format, fclass) {
+    $.spformat = function (format, fclass) {
         return new SPFormat(format, fclass);
     };
 
@@ -568,7 +571,7 @@
     };
 
     // http://paulirish.com/2008/bookmarklet-inject-new-css-rules/
-    addCSS = function(css) {
+    addCSS = function (css) {
         var tag;
         //if ('\v' == 'v') /* ie only */ {
         if (document.createStyleSheet) {
@@ -649,7 +652,7 @@
     });
 
     // Convenience function
-    $.range_map = function(map) {
+    $.range_map = function (map) {
         return new RangeMap(map);
     };
 
@@ -865,7 +868,6 @@
                 }
                 x = this.mousex - this.offsetLeft;
                 y = this.mousey - this.offsetTop;
-
             } else {
                 this.mousex = x = x - this.offsetLeft;
                 this.mousey = y = y - this.offsetTop;
@@ -1250,7 +1252,6 @@
                     }
                     return 'rgb(' + rgbnew.join(',') + ')';
                 }
-
             }
             return color;
         }
@@ -1365,14 +1366,24 @@
                 return;
             }
             if (spotRadius && highlightSpotColor) {
-                highlightSpot = target.drawCircle(vertex[0], vertex[1],
-                    spotRadius, undefined, highlightSpotColor);
+                highlightSpot = target.drawCircle(
+                    vertex[0],
+                    vertex[1],
+                    spotRadius,
+                    undefined,
+                    highlightSpotColor
+                );
                 this.highlightSpotId = highlightSpot.id;
                 target.insertAfterShape(this.lastShapeId, highlightSpot);
             }
             if (highlightLineColor) {
-                highlightLine = target.drawLine(vertex[0], this.canvasTop, vertex[0],
-                    this.canvasTop + this.canvasHeight, highlightLineColor);
+                highlightLine = target.drawLine(
+                    vertex[0],
+                    this.canvasTop,
+                    vertex[0],
+                    this.canvasTop + this.canvasHeight,
+                    highlightLineColor
+                );
                 this.highlightLineId = highlightLine.id;
                 target.insertAfterShape(this.lastShapeId, highlightLine);
             }
@@ -1599,8 +1610,11 @@
             // draw the fill first, then optionally the normal range, then the line on top of that
             plen = fillShapes.length;
             for (i = 0; i < plen; i++) {
-                target.drawShape(fillShapes[i],
-                    options.get('fillColor'), options.get('fillColor')).append();
+                target.drawShape(
+                    fillShapes[i],
+                    options.get('fillColor'),
+                    options.get('fillColor')
+                ).append();
             }
 
             if (options.get('normalRangeMin') && options.get('drawNormalOnTop')) {
@@ -1609,8 +1623,12 @@
 
             plen = lineShapes.length;
             for (i = 0; i < plen; i++) {
-                target.drawShape(lineShapes[i], options.get('lineColor'), undefined,
-                    options.get('lineWidth')).append();
+                target.drawShape(
+                    lineShapes[i],
+                    options.get('lineColor'),
+                    undefined,
+                    options.get('lineWidth')
+                ).append();
             }
 
             if (spotRadius && options.get('valueSpots')) {
@@ -1621,34 +1639,45 @@
                 for (i = 0; i < yvalcount; i++) {
                     color = valueSpots.get(yvalues[i]);
                     if (color) {
-                        target.drawCircle(canvasLeft + Math.round((xvalues[i] - this.minx) * (canvasWidth / rangex)),
+                        target.drawCircle(
+                            canvasLeft + Math.round((xvalues[i] - this.minx) * (canvasWidth / rangex)),
                             canvasTop + Math.round(canvasHeight - (canvasHeight * ((yvalues[i] - this.miny) / rangey))),
-                            spotRadius, undefined,
-                            color).append();
+                            spotRadius,
+                            undefined,
+                            color
+                        ).append();
                     }
                 }
-
             }
             if (spotRadius && options.get('spotColor')) {
-                target.drawCircle(canvasLeft + Math.round((xvalues[xvalues.length - 1] - this.minx) * (canvasWidth / rangex)),
+                target.drawCircle(
+                    canvasLeft + Math.round((xvalues[xvalues.length - 1] - this.minx) * (canvasWidth / rangex)),
                     canvasTop + Math.round(canvasHeight - (canvasHeight * ((yvalues[yvallast] - this.miny) / rangey))),
-                    spotRadius, undefined,
-                    options.get('spotColor')).append();
+                    spotRadius,
+                    undefined,
+                    options.get('spotColor')
+                ).append();
             }
             if (this.maxy !== this.minyorg) {
                 if (spotRadius && options.get('minSpotColor')) {
                     x = xvalues[$.inArray(this.minyorg, yvalues)];
-                    target.drawCircle(canvasLeft + Math.round((x - this.minx) * (canvasWidth / rangex)),
+                    target.drawCircle(
+                        canvasLeft + Math.round((x - this.minx) * (canvasWidth / rangex)),
                         canvasTop + Math.round(canvasHeight - (canvasHeight * ((this.minyorg - this.miny) / rangey))),
-                        spotRadius, undefined,
-                        options.get('minSpotColor')).append();
+                        spotRadius,
+                        undefined,
+                        options.get('minSpotColor')
+                    ).append();
                 }
                 if (spotRadius && options.get('maxSpotColor')) {
                     x = xvalues[$.inArray(this.maxyorg, yvalues)];
-                    target.drawCircle(canvasLeft + Math.round((x - this.minx) * (canvasWidth / rangex)),
+                    target.drawCircle(
+                        canvasLeft + Math.round((x - this.minx) * (canvasWidth / rangex)),
                         canvasTop + Math.round(canvasHeight - (canvasHeight * ((this.maxyorg - this.miny) / rangey))),
-                        spotRadius, undefined,
-                        options.get('maxSpotColor')).append();
+                        spotRadius,
+                        undefined,
+                        options.get('maxSpotColor')
+                    ).append();
                 }
             }
 
@@ -2163,8 +2192,14 @@
             if (highlight) {
                 color = this.calcHighlightColor(color, this.options);
             }
-            return this.target.drawRect(0, Math.round(this.canvasHeight * 0.3), perfwidth - 1,
-                Math.round(this.canvasHeight * 0.4) - 1, color, color);
+            return this.target.drawRect(
+                0,
+                Math.round(this.canvasHeight * 0.3),
+                perfwidth - 1,
+                Math.round(this.canvasHeight * 0.4) - 1,
+                color,
+                color
+            );
         },
 
         renderTarget: function (highlight) {
@@ -2299,8 +2334,14 @@
                 return;
             }
             if (borderWidth) {
-                target.drawCircle(radius, radius, Math.floor(radius - (borderWidth / 2)),
-                    options.get('borderColor'), undefined, borderWidth).append();
+                target.drawCircle(
+                    radius,
+                    radius,
+                    Math.floor(radius - (borderWidth / 2)),
+                    options.get('borderColor'),
+                    undefined,
+                    borderWidth
+                ).append();
             }
             for (i = values.length; i--;) {
                 shape = this.renderSlice(i).append();
@@ -2385,7 +2426,8 @@
                     rwhisker = values[4];
                 }
             } else {
-                values.sort(function (a, b) { return a - b; });
+                values.sort(function (a, b) {
+                    return a - b; });
                 q1 = quartile(values, 1);
                 q2 = quartile(values, 2);
                 q3 = quartile(values, 3);
@@ -2419,18 +2461,22 @@
                 canvasWidth -= 2 * Math.ceil(options.get('spotRadius'));
                 unitSize = canvasWidth / (maxValue - minValue + 1);
                 if (loutlier < lwhisker) {
-                    target.drawCircle((loutlier - minValue) * unitSize + canvasLeft,
+                    target.drawCircle(
+                        (loutlier - minValue) * unitSize + canvasLeft,
                         canvasHeight / 2,
                         options.get('spotRadius'),
                         options.get('outlierLineColor'),
-                        options.get('outlierFillColor')).append();
+                        options.get('outlierFillColor')
+                    ).append();
                 }
                 if (routlier > rwhisker) {
-                    target.drawCircle((routlier - minValue) * unitSize + canvasLeft,
+                    target.drawCircle(
+                        (routlier - minValue) * unitSize + canvasLeft,
                         canvasHeight / 2,
                         options.get('spotRadius'),
                         options.get('outlierLineColor'),
-                        options.get('outlierFillColor')).append();
+                        options.get('outlierFillColor')
+                    ).append();
                 }
             }
 
@@ -2441,39 +2487,46 @@
                 Math.round((q3 - q1) * unitSize),
                 Math.round(canvasHeight * 0.8),
                 options.get('boxLineColor'),
-                options.get('boxFillColor')).append();
+                options.get('boxFillColor')
+            ).append();
             // left whisker
             target.drawLine(
                 Math.round((lwhisker - minValue) * unitSize + canvasLeft),
                 Math.round(canvasHeight / 2),
                 Math.round((q1 - minValue) * unitSize + canvasLeft),
                 Math.round(canvasHeight / 2),
-                options.get('lineColor')).append();
+                options.get('lineColor')
+            ).append();
             target.drawLine(
                 Math.round((lwhisker - minValue) * unitSize + canvasLeft),
                 Math.round(canvasHeight / 4),
                 Math.round((lwhisker - minValue) * unitSize + canvasLeft),
                 Math.round(canvasHeight - canvasHeight / 4),
-                options.get('whiskerColor')).append();
+                options.get('whiskerColor')
+            ).append();
             // right whisker
-            target.drawLine(Math.round((rwhisker - minValue) * unitSize + canvasLeft),
+            target.drawLine(
+                Math.round((rwhisker - minValue) * unitSize + canvasLeft),
                 Math.round(canvasHeight / 2),
                 Math.round((q3 - minValue) * unitSize + canvasLeft),
                 Math.round(canvasHeight / 2),
-                options.get('lineColor')).append();
+                options.get('lineColor')
+            ).append();
             target.drawLine(
                 Math.round((rwhisker - minValue) * unitSize + canvasLeft),
                 Math.round(canvasHeight / 4),
                 Math.round((rwhisker - minValue) * unitSize + canvasLeft),
                 Math.round(canvasHeight - canvasHeight / 4),
-                options.get('whiskerColor')).append();
+                options.get('whiskerColor')
+            ).append();
             // median line
             target.drawLine(
                 Math.round((q2 - minValue) * unitSize + canvasLeft),
                 Math.round(canvasHeight * 0.1),
                 Math.round((q2 - minValue) * unitSize + canvasLeft),
                 Math.round(canvasHeight * 0.9),
-                options.get('medianColor')).append();
+                options.get('medianColor')
+            ).append();
             if (options.get('target')) {
                 size = Math.ceil(options.get('spotRadius'));
                 target.drawLine(
@@ -2481,13 +2534,15 @@
                     Math.round((canvasHeight / 2) - size),
                     Math.round((options.get('target') - minValue) * unitSize + canvasLeft),
                     Math.round((canvasHeight / 2) + size),
-                    options.get('targetColor')).append();
+                    options.get('targetColor')
+                ).append();
                 target.drawLine(
                     Math.round((options.get('target') - minValue) * unitSize + canvasLeft - size),
                     Math.round(canvasHeight / 2),
                     Math.round((options.get('target') - minValue) * unitSize + canvasLeft + size),
                     Math.round(canvasHeight / 2),
-                    options.get('targetColor')).append();
+                    options.get('targetColor')
+                ).append();
             }
             target.render();
         }

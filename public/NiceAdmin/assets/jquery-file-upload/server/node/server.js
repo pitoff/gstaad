@@ -1,19 +1,4 @@
-#!/usr/bin/env node
-/*
- * jQuery File Upload Plugin Node.js Example 2.0
- * https://github.com/blueimp/jQuery-File-Upload
- *
- * Copyright 2012, Sebastian Tschan
- * https://blueimp.net
- *
- * Licensed under the MIT license:
- * http://www.opensource.org/licenses/MIT
- */
-
-/*jslint nomen: true, regexp: true, unparam: true, stupid: true */
-/*global require, __dirname, unescape, console */
-
-(function (port) {
+#!/usr/bin/env node(function (port) {
     'use strict';
     var path = require('path'),
         fs = require('fs'),
@@ -54,7 +39,7 @@
             nodeStatic: {
                 cache: 3600 // seconds to cache served files
             }
-        },
+    },
         utf8encode = function (str) {
             return unescape(encodeURIComponent(str));
         },
@@ -84,23 +69,23 @@
                 options.accessControl.allowMethods
             );
             var handleResult = function (result, redirect) {
-                    if (redirect) {
-                        res.writeHead(302, {
-                            'Location': redirect.replace(
-                                /%s/,
-                                encodeURIComponent(JSON.stringify(result))
-                            )
+                if (redirect) {
+                    res.writeHead(302, {
+                        'Location': redirect.replace(
+                            /%s/,
+                            encodeURIComponent(JSON.stringify(result))
+                        )
+                    });
+                    res.end();
+                } else {
+                    res.writeHead(200, {
+                        'Content-Type': req.headers.accept
+                            .indexOf('application/json') !== -1 ?
+                        'application/json' : 'text/plain'
                         });
-                        res.end();
-                    } else {
-                        res.writeHead(200, {
-                            'Content-Type': req.headers.accept
-                                .indexOf('application/json') !== -1 ?
-                                        'application/json' : 'text/plain'
-                        });
-                        res.end(JSON.stringify(result));
-                    }
-                },
+                    res.end(JSON.stringify(result));
+                }
+            },
                 setNoCacheHeaders = function () {
                     res.setHeader('Pragma', 'no-cache');
                     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
@@ -108,32 +93,32 @@
                 },
                 handler = new UploadHandler(req, res, handleResult);
             switch (req.method) {
-            case 'OPTIONS':
-                res.end();
+                case 'OPTIONS':
+                    res.end();
                 break;
-            case 'HEAD':
-            case 'GET':
-                if (req.url === '/') {
-                    setNoCacheHeaders();
-                    if (req.method === 'GET') {
-                        handler.get();
+                case 'HEAD':
+                case 'GET':
+                    if (req.url === '/') {
+                        setNoCacheHeaders();
+                        if (req.method === 'GET') {
+                            handler.get();
+                        } else {
+                            res.end();
+                        }
                     } else {
-                        res.end();
+                        fileServer.serve(req, res);
                     }
-                } else {
-                    fileServer.serve(req, res);
-                }
                 break;
-            case 'POST':
-                setNoCacheHeaders();
-                handler.post();
+                case 'POST':
+                    setNoCacheHeaders();
+                    handler.post();
                 break;
-            case 'DELETE':
-                handler.destroy();
+                case 'DELETE':
+                    handler.destroy();
                 break;
-            default:
-                res.statusCode = 405;
-                res.end();
+                default:
+                    res.statusCode = 405;
+                    res.end();
             }
         };
     fileServer.respond = function (pathname, status, _headers, files, stat, req, res, finish) {
@@ -176,8 +161,8 @@
             this.url = this.delete_url = baseUrl + encodeURIComponent(this.name);
             Object.keys(options.imageVersions).forEach(function (version) {
                 if (_existsSync(
-                        options.uploadDir + '/' + version + '/' + that.name
-                    )) {
+                    options.uploadDir + '/' + version + '/' + that.name
+                )) {
                     that[version + '_url'] = baseUrl + version + '/' +
                         encodeURIComponent(that.name);
                 }

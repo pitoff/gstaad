@@ -51,7 +51,7 @@ html .fc,
   
 .fc-header-right {
   width: 25%;
-  text-align: right;    
+  text-align: right;
   }
   
 .fc-header-title {
@@ -174,7 +174,7 @@ html .fc,
     position: relative;
     float: left;
     overflow: hidden;
-    padding: 5px;  
+    padding: 5px;
 }
 .fc-corner-left .fc-button-inner,.fc-state-active .fc-button-inner{
     padding: 6px !important;

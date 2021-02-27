@@ -1,41 +1,46 @@
 <?php
-    include ("../includeconnection.php");
+    include("../includeconnection.php");
 
     $sel = "SELECT * FROM category";
     $selresult = mysqli_query($connect, $sel);
-    if (mysqli_num_rows(($selresult))) {
+if (mysqli_num_rows(($selresult))) {
     while ($row = mysqli_fetch_assoc($selresult)) {
             $id[] = $row['id'];
-            $name1[] = $row['name']; 
-
-        }
-     }else{echo "did not select". mysqli_error($connect);}
+            $name1[] = $row['name'];
+    }
+} else {
+    echo "did not select". mysqli_error($connect);
+}
 
     $get = $_GET['id'];
     $sql =  "SELECT * FROM info WHERE id= '$get'";
     $result = mysqli_query($connect, $sql);
-    if (mysqli_num_rows($result)) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $name = $row['name'];
-            $category[] = $row['category'];
-            $details = $row['details'];
-            $picture = $row['picture'];
-            $date = $row['date'];
-        }
-    }else{echo "unsuccessful" .mysqli_error($connect);}
-
-    if (isset($_POST['submit'])) {
-        $nname = $_POST['titlename'];
-        $ncategory = $_POST['category'];
-        $ndetails = $_POST['editortext'];
-        $npicture = $_POST['picture'];
-
-        $update = "UPDATE info SET name = '$nname', category = '$ncategory', details = '$ndetails', picture = '$npicture' WHERE id = '$get'";
-        $updatequery = mysqli_query($connect, $update);
-        if ($updatequery) {
-            echo "good";
-        }else{echo "bad";}
+if (mysqli_num_rows($result)) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $name = $row['name'];
+        $category[] = $row['category'];
+        $details = $row['details'];
+        $picture = $row['picture'];
+        $date = $row['date'];
     }
+} else {
+    echo "unsuccessful" .mysqli_error($connect);
+}
+
+if (isset($_POST['submit'])) {
+    $nname = $_POST['titlename'];
+    $ncategory = $_POST['category'];
+    $ndetails = $_POST['editortext'];
+    $npicture = $_POST['picture'];
+
+    $update = "UPDATE info SET name = '$nname', category = '$ncategory', details = '$ndetails', picture = '$npicture' WHERE id = '$get'";
+    $updatequery = mysqli_query($connect, $update);
+    if ($updatequery) {
+        echo "good";
+    } else {
+        echo "bad";
+    }
+}
 
     
 ?>
@@ -456,7 +461,7 @@
                                                 
                                                   <select name="category" class="form-control" id="category">
                                                   <?php foreach ($name1 as $item) {
-                                                    echo "<option> $item </option>";
+                                                        echo "<option> $item </option>";
                                                   }?>
                                                   </select>
                                                 

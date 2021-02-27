@@ -49,11 +49,10 @@
       </div>
       <div class="card-body">
       <h2>[caption]</h2>
-      <p>Hi [email],</p>
       <p>[body]</p>
       </div>
       <div class="card-footer">
-      <b>- [link]</b>
+      <b>- [site_title]</b>
       </div>
     </div>
   </div>

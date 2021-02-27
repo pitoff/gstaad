@@ -8,16 +8,16 @@
         </div>
       </div>             
               <!--overview start-->
-			  <div class="row" style="margin-top: 20px;">
-				<div class="col-lg-12">
-					<ol class="breadcrumb">
-						<li><a href="index.html">Users</a></li>
-						<li><i class="fa fa-list"></i>All</li>						  	
-					</ol>
-				</div>
-			  
+              <div class="row" style="margin-top: 20px;">
+                <div class="col-lg-12">
+                    <ol class="breadcrumb">
+                        <li><a href="index.html">Users</a></li>
+                        <li><i class="fa fa-list"></i>All</li>                          
+                    </ol>
+                </div>
+              
 
-			  	   <div class="col-lg-12">
+                   <div class="col-lg-12">
              <div class="msg"><?php flash('clear');?></div>
                       <section class="table-responsive">
                           <!-- <header class="panel-heading">
@@ -38,8 +38,8 @@
                                 
                               </tr>
                               </thead>
-                            <?php foreach($data['users'] as $users):?>
-                              <?php if(($users->role) == 2):?>
+                            <?php foreach ($data['users'] as $users) :?>
+                                <?php if (($users->role) == 2) :?>
                               <tbody>
                               <tr>
                                   
@@ -54,15 +54,15 @@
                                   <td><?php echo $users->acc_status;?></td>
 
                               </tr>
-                            <?php endif;?>
-                          	<?php endforeach;?>
+                                <?php endif;?>
+                            <?php endforeach;?>
                               </tbody>
                           </table>
                       </section>
                   </div>
-			  </div>
+              </div>
 
-			</section>
+            </section>
 </section>
 <script type="text/javascript">
   $('.msg').delay(3000).fadeOut(300);

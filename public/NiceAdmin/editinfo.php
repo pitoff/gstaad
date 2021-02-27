@@ -1,21 +1,23 @@
 <?php
-    include ("../includeconnection.php");
+    include("../includeconnection.php");
 
     $sql = "SELECT * FROM info ORDER BY id";
     $result = mysqli_query($connect, $sql);
 
     $count = 0;
-    if(mysqli_num_rows($result)>$count){
-        while($row = mysqli_fetch_assoc($result)){
-            $id[] = $row["id"];
-            $name[] = $row['name'];
-            $category[] = $row['category'];
-            $details[] = $row['details'];
-            $picture[] = $row['picture'];
-            $date[] = $row['date'];
-            $count++;
-        }
-    }else{echo "could not select" .mysqli_error($connect);}
+if (mysqli_num_rows($result)>$count) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $id[] = $row["id"];
+        $name[] = $row['name'];
+        $category[] = $row['category'];
+        $details[] = $row['details'];
+        $picture[] = $row['picture'];
+        $date[] = $row['date'];
+        $count++;
+    }
+} else {
+    echo "could not select" .mysqli_error($connect);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -331,7 +333,7 @@
                           <span>Dashboard</span>
                       </a>
                   </li>
-				  <li class="sub-menu">
+                  <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon_document_alt"></i>
                           <span>Forms</span>
@@ -404,11 +406,11 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-		  <div class="row">
-				<div class="col-lg-12">
-					<h3 class="page-header"><i class="fa fa-file-text-o"></i> News And Categories</h3>
-				</div>
-			</div>
+          <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="fa fa-file-text-o"></i> News And Categories</h3>
+                </div>
+            </div>
               <div class="row">
                   <div class="col-lg-12">
                       <section class="panel">
@@ -432,7 +434,7 @@
                               </tr>
                               </thead>
                               <tbody>
-                              <?php for($x=0; $x<$count; $x++) {?>
+                              <?php for ($x=0; $x<$count; $x++) {?>
                               <tr>
                                   <td><?php echo $id[$x];?></td>
                                   <td><?php echo $name[$x];?></td>

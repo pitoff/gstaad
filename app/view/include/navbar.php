@@ -8,9 +8,9 @@
             </div>
 
             <!--logo start-->
-            <?php if($_SESSION['role'] == 1):?>
+            <?php if ($_SESSION['role'] == 1) :?>
             <a href="<?php echo URLROOT;?>" class="logo"><?php echo SITENAME;?><span class="text-primary" style="color: #fd7e14 !important; font-weight: bold;">.</span></a>
-            <?php elseif($_SESSION['role'] == 2):?>
+            <?php elseif ($_SESSION['role'] == 2) :?>
                 <a href="<?php echo URLROOT;?>" class="logo" style="color:#fff;"><?php echo SITENAME;?><span class="text-primary" style="color: #fd7e14 !important; font-weight: bold;">.</span></a>
             <?php endif; ?>
             <!--logo end-->
@@ -26,9 +26,9 @@
                             <!-- <span class="profile-ava">
                                 <img alt="" src="img/avatar1_small.jpg">
                             </span> -->
-                        <?php if($_SESSION['role'] == 1):?>
+                        <?php if ($_SESSION['role'] == 1) :?>
                             <span class="username"><?php echo $_SESSION['surname'] .' '. $_SESSION['firstname'];?></span>
-                        <?php elseif($_SESSION['role'] == 2):?>
+                        <?php elseif ($_SESSION['role'] == 2) :?>
                             <span class="username"><?php echo $_SESSION['surname'] .' '. $_SESSION['firstname'];?></span>
                         <?php endif;?>
                             <b class="caret"></b>

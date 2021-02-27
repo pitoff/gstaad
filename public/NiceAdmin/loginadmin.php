@@ -1,5 +1,5 @@
 <?php
-    include ("../includeconnection.php");
+    include("../includeconnection.php");
 ?>
 
 <!DOCTYPE html>
@@ -68,23 +68,25 @@
             </div>
         </div>
         <?php
-            if (isset($_POST['submit'])) {
-                $user = $_POST['username'];
-                $password = $_POST['password'];
+        if (isset($_POST['submit'])) {
+            $user = $_POST['username'];
+            $password = $_POST['password'];
 
-                $select = mysqli_query($connect, "SELECT * FROM admin WHERE username = '$user' and password = '$password'");
-                $num = mysqli_num_rows($select);
-                if(mysqli_num_rows($select)){
-                    while ($row = mysqli_fetch_assoc($select)) {
-                        $me = $rows['username'];
-                        $me2 = $rows['password'];
-                    }
-                    if ($num>0) {
-                        setcookie("oka", $me, time()+3600);
-                        header("location:profile.html");
-                    }
-                }else{echo "does not match" .mysqli_error($connect);}
+            $select = mysqli_query($connect, "SELECT * FROM admin WHERE username = '$user' and password = '$password'");
+            $num = mysqli_num_rows($select);
+            if (mysqli_num_rows($select)) {
+                while ($row = mysqli_fetch_assoc($select)) {
+                    $me = $rows['username'];
+                    $me2 = $rows['password'];
+                }
+                if ($num>0) {
+                    setcookie("oka", $me, time()+3600);
+                    header("location:profile.html");
+                }
+            } else {
+                echo "does not match" .mysqli_error($connect);
             }
+        }
 
         ?>
     </div>

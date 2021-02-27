@@ -42,15 +42,15 @@ $(function () {
                     action: 'load',
                     fileTypes: /^image\/(gif|jpeg|png)$/,
                     maxFileSize: 20000000 // 20MB
-                },
+            },
                 {
                     action: 'resize',
                     maxWidth: 1440,
                     maxHeight: 900
-                },
+            },
                 {
                     action: 'save'
-                }
+            }
             ]
         });
         // Upload server status check for browsers with CORS support:
@@ -72,7 +72,7 @@ $(function () {
             // Uncomment the following to send cross-domain cookies:
             //xhrFields: {withCredentials: true},
             url: $('#fileupload').fileupload('option', 'url'),
-            dataType: 'json',            
+            dataType: 'json',
             context: $('#fileupload')[0],
             maxFileSize: 5000000,
             acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
@@ -81,15 +81,15 @@ $(function () {
                     action: 'load',
                     fileTypes: /^image\/(gif|jpeg|png)$/,
                     maxFileSize: 20000000 // 20MB
-                },
+            },
                 {
                     action: 'resize',
                     maxWidth: 1440,
                     maxHeight: 900
-                },
+            },
                 {
                     action: 'save'
-                }
+            }
             ]
         }).done(function (result) {
             $(this).fileupload('option', 'done')

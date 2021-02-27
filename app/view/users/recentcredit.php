@@ -8,16 +8,16 @@
         </div>
       </div>           
               <!--overview start-->
-			  <div class="row" style="margin-top: 20px;">
-				<div class="col-lg-12">
-					<ol class="breadcrumb">
-						<li><a href="index.html">Users</a></li>
-						<li><i class="fa fa-list"></i>Account credits</li>						  	
-					</ol>
-				</div>
-			  
+              <div class="row" style="margin-top: 20px;">
+                <div class="col-lg-12">
+                    <ol class="breadcrumb">
+                        <li><a href="index.html">Users</a></li>
+                        <li><i class="fa fa-list"></i>Account credits</li>                          
+                    </ol>
+                </div>
+              
 
-			  	   <div class="col-lg-12">
+                   <div class="col-lg-12">
                       <section class="table-responsive">
                           
                           <table class="table table-hover">
@@ -34,8 +34,8 @@
                                   <th>Transaction time</th>
                               </tr>
                               </thead>
-                            <?php foreach($data['rcredit'] as $rcredit):?>
-                              <?php  if(($data['user']->id) == ($rcredit->user_id)):?>
+                            <?php foreach ($data['rcredit'] as $rcredit) :?>
+                                <?php  if (($data['user']->id) == ($rcredit->user_id)) :?>
                               <tbody>
                               <tr>
                                   <td><?php echo $rcredit->transaction_id;?></td>
@@ -44,14 +44,14 @@
                                   <td><?php echo $rcredit->sender_bank;?></td>
                                   <td><?php echo $rcredit->cdate;?></td>
                               </tr>
-                            <?php endif;?>
-                          	<?php endforeach;?>
+                                <?php endif;?>
+                            <?php endforeach;?>
                               </tbody>
                           </table>
                       </section>
                   </div>
-			  </div>
+              </div>
 
-			</section>
+            </section>
 </section>
 <?php require APPROOT .'/view/include/footer'. '.php';?> 

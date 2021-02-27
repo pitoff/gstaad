@@ -15,33 +15,39 @@
         // Other environment (usually <script> tag): plug in to global chai instance directly.
         chai.use(sinonChai);
     }
-}(function sinonChai(chai, utils) {
+}(function sinonChai(chai, utils)
+{
     "use strict";
 
     var slice = Array.prototype.slice;
 
-    function isSpy(putativeSpy) {
+    function isSpy(putativeSpy)
+    {
         return typeof putativeSpy === "function" &&
                typeof putativeSpy.getCall === "function" &&
                typeof putativeSpy.calledWithExactly === "function";
     }
 
-    function isCall(putativeCall) {
+    function isCall(putativeCall)
+    {
         return putativeCall && isSpy(putativeCall.proxy);
     }
 
-    function assertCanWorkWith(assertion) {
+    function assertCanWorkWith(assertion)
+    {
         if (!isSpy(assertion._obj) && !isCall(assertion._obj)) {
             throw new TypeError(utils.inspect(assertion._obj) + " is not a spy or a call to a spy!");
         }
     }
 
-    function getMessages(spy, action, nonNegatedSuffix, always, args) {
+    function getMessages(spy, action, nonNegatedSuffix, always, args)
+    {
         var verbPhrase = always ? "always have " : "have ";
         nonNegatedSuffix = nonNegatedSuffix || "";
         spy = spy.proxy || spy;
 
-        function printfArray(array) {
+        function printfArray(array)
+        {
             return spy.printf.apply(spy, array);
         }
 
@@ -51,7 +57,8 @@
         };
     }
 
-    function sinonProperty(name, action, nonNegatedSuffix) {
+    function sinonProperty(name, action, nonNegatedSuffix)
+    {
         utils.addProperty(chai.Assertion.prototype, name, function () {
             assertCanWorkWith(this);
 
@@ -60,7 +67,8 @@
         });
     }
 
-    function exceptionalSinonMethod(chaiName, sinonName, action, nonNegatedSuffix) {
+    function exceptionalSinonMethod(chaiName, sinonName, action, nonNegatedSuffix)
+    {
         utils.addMethod(chai.Assertion.prototype, chaiName, function () {
             assertCanWorkWith(this);
 
@@ -73,7 +81,8 @@
         });
     }
 
-    function sinonMethod(name, action, nonNegatedSuffix) {
+    function sinonMethod(name, action, nonNegatedSuffix)
+    {
         exceptionalSinonMethod(name, name, action, nonNegatedSuffix);
     }
 

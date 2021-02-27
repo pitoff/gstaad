@@ -8,14 +8,14 @@
         </div>
       </div>             
               <!--overview start-->
-			  <div class="row" style="margin-top: 20px;">
-				<div class="col-lg-12">
-					<ol class="breadcrumb">
-						<li><a href="index.html">User</a></li>
-						<li><i class="fa fa-arrow-up"></i>Transfer Money</li>						  	
-					</ol>
-				</div>
-			  </div>
+              <div class="row" style="margin-top: 20px;">
+                <div class="col-lg-12">
+                    <ol class="breadcrumb">
+                        <li><a href="index.html">User</a></li>
+                        <li><i class="fa fa-arrow-up"></i>Transfer Money</li>                           
+                    </ol>
+                </div>
+              </div>
 
 <!-- Form validations -->              
               <div class="row">
@@ -54,7 +54,7 @@
                </div>
 
 
-		  </section>
+          </section>
 </section>
 <script type="text/javascript">
   $('.msg').delay(2500).fadeOut(300);

@@ -1,5 +1,5 @@
 <?php require APPROOT .'/view/include/bheader'. '.php';?>
-	<div class="site-blocks-cover overlay" style="background-image: url(../NiceAdmin/img/home.jpg);" data-aos="fade" id="home-section">
+    <div class="site-blocks-cover overlay" style="background-image: url(../NiceAdmin/img/home.jpg);" data-aos="fade" id="home-section">
 
       <div class="container">
         <div class="row align-items-center justify-content-center">

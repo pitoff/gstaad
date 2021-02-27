@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
         // begin first table
         $('#sample_1').dataTable({

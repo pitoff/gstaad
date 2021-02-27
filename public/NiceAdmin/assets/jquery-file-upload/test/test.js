@@ -29,15 +29,15 @@ $(function () {
     };
 
     var lifecycle = {
-            setup: function () {
-                // Set the .fileupload method to the basic widget method:
-                $.widget('blueimp.fileupload', window.testBasicWidget, {});
-            },
-            teardown: function () {
-                // Remove all remaining event listeners:
-                $(document).unbind();
-            }
+        setup: function () {
+            // Set the .fileupload method to the basic widget method:
+            $.widget('blueimp.fileupload', window.testBasicWidget, {});
         },
+        teardown: function () {
+            // Remove all remaining event listeners:
+            $(document).unbind();
+        }
+    },
         lifecycleUI = {
             setup: function () {
                 // Set the .fileupload method to the UI widget method:
@@ -47,7 +47,7 @@ $(function () {
                 // Remove all remaining event listeners:
                 $(document).unbind();
             }
-        };
+    };
 
     module('Initialization', lifecycle);
 
@@ -141,7 +141,7 @@ $(function () {
                     ok(true, 'Triggers change callback');
                     return false;
                 }
-            },
+        },
             fu = $('#fileupload').fileupload(options),
             fileInput = fu.fileupload('option', 'fileInput'),
             dropZone = fu.fileupload('option', 'dropZone'),
@@ -691,7 +691,7 @@ $(function () {
                 {name: '3'},
                 {name: '4'},
                 {name: '5'}
-            ]},
+                ]},
             index = 1;
         (fu.data('blueimp-fileupload') || fu.data('fileupload'))
             ._isXHRUpload = function () {
@@ -805,9 +805,9 @@ $(function () {
         asyncTest('multipart', function () {
             expect(2);
             var param = {files: [{
-                    name: 'test.png',
-                    size: 123,
-                    type: 'image/png'
+                name: 'test.png',
+                size: 123,
+                type: 'image/png'
                 }]},
                 fu = $('#fileupload').fileupload({
                     multipart: false,
@@ -1080,10 +1080,10 @@ $(function () {
                         addIndex
                     );
                 },
-                progress: $.noop,
-                progressall: $.noop,
-                done: $.noop,
-                stop: $.noop
+            progress: $.noop,
+            progressall: $.noop,
+            done: $.noop,
+            stop: $.noop
             })
             .fileupload('add', {files: [{name: (addIndex += 1)}]})
             .fileupload('add', {files: [{name: 'test'}]})
@@ -1132,15 +1132,15 @@ $(function () {
             })
             .fileupload('add', {files: [{
                 name: (addIndex += 1)
-            }]})
+                }]})
             .fileupload('add', {files: [{
                 name: (addIndex += 1),
                 size: 999
-            }]})
+                }]})
             .fileupload('add', {files: [{
                 name: 'test',
                 size: 1001
-            }]})
+                }]})
             .fileupload({
                 send: function (e, data) {
                     ok(
@@ -1153,7 +1153,7 @@ $(function () {
             .fileupload('send', {files: [{
                 name: 'test',
                 size: 1001
-            }]});
+                }]});
     });
 
     test('minFileSize', function () {
@@ -1174,15 +1174,15 @@ $(function () {
             })
             .fileupload('add', {files: [{
                 name: (addIndex += 1)
-            }]})
+                }]})
             .fileupload('add', {files: [{
                 name: (addIndex += 1),
                 size: 1001
-            }]})
+                }]})
             .fileupload('add', {files: [{
                 name: 'test',
                 size: 999
-            }]})
+                }]})
             .fileupload({
                 send: function (e, data) {
                     ok(
@@ -1195,7 +1195,7 @@ $(function () {
             .fileupload('send', {files: [{
                 name: 'test',
                 size: 999
-            }]});
+                }]});
     });
 
     test('acceptFileTypes', function () {
@@ -1217,15 +1217,15 @@ $(function () {
             })
             .fileupload('add', {files: [{
                 name: (addIndex += 1) + '.jpg'
-            }]})
+                }]})
             .fileupload('add', {files: [{
                 name: (addIndex += 1),
                 type: 'image/jpeg'
-            }]})
+                }]})
             .fileupload('add', {files: [{
                 name: 'test.txt',
                 type: 'text/plain'
-            }]})
+                }]})
             .fileupload({
                 send: function (e, data) {
                     ok(
@@ -1238,7 +1238,7 @@ $(function () {
             .fileupload('send', {files: [{
                 name: 'test.txt',
                 type: 'text/plain'
-            }]});
+                }]});
     });
 
     test('acceptFileTypes as HTML5 data attribute', function () {

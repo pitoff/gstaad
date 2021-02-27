@@ -1,16 +1,18 @@
 <?php
-include ("../includeconnection.php");
+include("../includeconnection.php");
 
- if (isset($_POST['submit'])) {
-     $category = $_POST['category'];
+if (isset($_POST['submit'])) {
+    $category = $_POST['category'];
 
-     $sql = "INSERT INTO category (name) VALUES ('{$category}')";
-     $result = mysqli_query($connect, $sql);
+    $sql = "INSERT INTO category (name) VALUES ('{$category}')";
+    $result = mysqli_query($connect, $sql);
 
-     if ($result) {
-         echo "success";
-     }else{echo "category not inserted";}
- }
+    if ($result) {
+        echo "success";
+    } else {
+        echo "category not inserted";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -326,7 +328,7 @@ include ("../includeconnection.php");
                           <span>Dashboard</span>
                       </a>
                   </li>
-				  <li class="sub-menu">
+                  <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon_document_alt"></i>
                           <span>Forms</span>
@@ -399,16 +401,16 @@ include ("../includeconnection.php");
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-		  <div class="row">
-				<div class="col-lg-12">
-					<h3 class="page-header"><i class="fa fa-file-text-o"></i> Form elements</h3>
-					<ol class="breadcrumb">
-						<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-						<li><i class="icon_document_alt"></i>Forms</li>
-						<li><i class="fa fa-file-text-o"></i>Form elements</li>
-					</ol>
-				</div>
-			</div>
+          <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="fa fa-file-text-o"></i> Form elements</h3>
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                        <li><i class="icon_document_alt"></i>Forms</li>
+                        <li><i class="fa fa-file-text-o"></i>Form elements</li>
+                    </ol>
+                </div>
+            </div>
               <div class="row">
                   <div class="col-lg-12">
                       <section class="panel">

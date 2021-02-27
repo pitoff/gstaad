@@ -12,7 +12,7 @@
  *
  * Thanks to vor, eskimoblood, spiffistan, FabrizioC
  */
-(function($) {
+(function ($) {
 
     /**
      * Kontrol library
@@ -75,7 +75,9 @@
                  ._draw();
             };
 
-            if(this.$.data('kontroled')) return;
+            if (this.$.data('kontroled')) {
+                return;
+            }
             this.$.data('kontroled', true);
 
             this.extend();
@@ -104,23 +106,24 @@
                     change : null, // function (value) {}
                     cancel : null, // function () {}
                     release : null // function (value) {}
-                }, this.o
+                },
+                this.o
             );
 
             // routing value
-            if(this.$.is('fieldset')) {
-
+            if (this.$.is('fieldset')) {
                 // fieldset = array of integer
                 this.v = {};
                 this.i = this.$.find('input')
-                this.i.each(function(k) {
+                this.i.each(function (k) {
                     var $this = $(this);
                     s.i[k] = $this;
                     s.v[k] = $this.val();
 
                     $this.bind(
                         'change'
-                        , function () {
+                        ,
+                        function () {
                             var val = {};
                             val[k] = $this.val();
                             s.val(val);
@@ -128,7 +131,6 @@
                     );
                 });
                 this.$.find('legend').remove();
-
             } else {
                 // input = integer
                 this.i = this.$;
@@ -137,7 +139,8 @@
 
                 this.$.bind(
                     'change'
-                    , function () {
+                    ,
+                    function () {
                         s.val(s.$.val());
                     }
                 );
@@ -206,16 +209,20 @@
             var touchMove = function (e) {
 
                 var v = s.xy2val(
-                            e.originalEvent.touches[s.t].pageX,
-                            e.originalEvent.touches[s.t].pageY
-                            );
+                    e.originalEvent.touches[s.t].pageX,
+                    e.originalEvent.touches[s.t].pageY
+                );
 
-                if (v == s.cv) return;
+                if (v == s.cv) {
+                    return;
+                }
 
                 if (
                     s.cH
                     && (s.cH(v) === false)
-                ) return;
+                ) {
+                    return;
+                }
 
 
                 s.change(v);
@@ -233,13 +240,16 @@
                 .bind("touchmove.k", touchMove)
                 .bind(
                     "touchend.k"
-                    , function () {
+                    ,
+                    function () {
                         k.c.d.unbind('touchmove.k touchend.k');
 
                         if (
                             s.rH
                             && (s.rH(s.cv) === false)
-                        ) return;
+                        ) {
+                            return;
+                        }
 
                         s.val(s.cv);
                     }
@@ -252,12 +262,16 @@
 
             var mouseMove = function (e) {
                 var v = s.xy2val(e.pageX, e.pageY);
-                if (v == s.cv) return;
+                if (v == s.cv) {
+                    return;
+                }
 
                 if (
                     s.cH
                     && (s.cH(v) === false)
-                ) return;
+                ) {
+                    return;
+                }
 
                 s.change(v);
                 s._draw();
@@ -272,14 +286,17 @@
                 .bind(
                     // Escape key cancel current change
                     "keyup.k"
-                    , function (e) {
+                    ,
+                    function (e) {
                         if (e.keyCode === 27) {
                             k.c.d.unbind("mouseup.k mousemove.k keyup.k");
 
                             if (
                                 s.eH
                                 && (s.eH() === false)
-                            ) return;
+                            ) {
+                                return;
+                            }
 
                             s.cancel();
                         }
@@ -287,13 +304,16 @@
                 )
                 .bind(
                     "mouseup.k"
-                    , function (e) {
+                    ,
+                    function (e) {
                         k.c.d.unbind('mousemove.k mouseup.k keyup.k');
 
                         if (
                             s.rH
                             && (s.rH(s.cv) === false)
-                        ) return;
+                        ) {
+                            return;
+                        }
 
                         s.val(s.cv);
                     }
@@ -315,17 +335,19 @@
                 this.$c
                     .bind(
                         "mousedown"
-                        , function (e) {
+                        ,
+                        function (e) {
                             e.preventDefault();
                             s._xy()._mouse(e);
-                         }
+                        }
                     )
                     .bind(
                         "touchstart"
-                        , function (e) {
+                        ,
+                        function (e) {
                             e.preventDefault();
                             s._xy()._touch(e);
-                         }
+                        }
                     );
                 this.listen();
             } else {
@@ -338,10 +360,18 @@
         this._configure = function () {
 
             // Hooks
-            if (this.o.draw) this.dH = this.o.draw;
-            if (this.o.change) this.cH = this.o.change;
-            if (this.o.cancel) this.eH = this.o.cancel;
-            if (this.o.release) this.rH = this.o.release;
+            if (this.o.draw) {
+                this.dH = this.o.draw;
+            }
+            if (this.o.change) {
+                this.cH = this.o.change;
+            }
+            if (this.o.cancel) {
+                this.eH = this.o.cancel;
+            }
+            if (this.o.release) {
+                this.rH = this.o.release;
+            }
 
             if (this.o.displayPrevious) {
                 this.pColor = this.h2rgba(this.o.fgColor, "0.4");
@@ -365,7 +395,8 @@
         this.val = function (v) {}; // on release
         this.xy2val = function (x, y) {}; //
         this.draw = function () {}; // on change / on release
-        this.clear = function () { this._clear(); };
+        this.clear = function () {
+            this._clear(); };
 
         // Utils
         this.h2rgba = function (h, a) {
@@ -378,7 +409,8 @@
         };
 
         this.copy = function (f, t) {
-            for (var i in f) { t[i] = f[i]; }
+            for (var i in f) {
+                t[i] = f[i]; }
         };
     };
 
@@ -404,7 +436,8 @@
                     angleOffset : this.$.data('angleoffset') || 0,
                     angleArc : this.$.data('anglearc') || 360,
                     inline : true
-                }, this.o
+                },
+                this.o
             );
         };
 
@@ -423,18 +456,19 @@
             var a, ret;
 
             a = Math.atan2(
-                        x - (this.x + this.w2)
-                        , - (y - this.y - this.w2)
-                    ) - this.angleOffset;
+                x - (this.x + this.w2)
+                        ,
+                - (y - this.y - this.w2)
+            ) - this.angleOffset;
 
-            if(this.angleArc != this.PI2 && (a < 0) && (a > -0.5)) {
+            if (this.angleArc != this.PI2 && (a < 0) && (a > -0.5)) {
                 // if isset angleArc option, set to min if .5 under min
                 a = 0;
             } else if (a < 0) {
                 a += this.PI2;
             }
 
-            ret = ~~ (0.5 + (a * (this.o.max - this.o.min) / this.angleArc))
+            ret = ~~(0.5 + (a * (this.o.max - this.o.min) / this.angleArc))
                     + this.o.min;
 
             this.o.stopper
@@ -454,30 +488,32 @@
                                 ,deltaY = ori.detail || ori.wheelDeltaY
                                 ,v = parseInt(s.$.val()) + (deltaX>0 || deltaY>0 ? 1 : deltaX<0 || deltaY<0 ? -1 : 0);
 
-                            if (
+                    if (
                                 s.cH
                                 && (s.cH(v) === false)
-                            ) return;
+                            ) {
+                        return;
+                    }
 
                             s.val(v);
-                        }
+                }
                 , kval, to, m = 1, kv = {37:-1, 38:1, 39:1, 40:-1};
 
             this.$
                 .bind(
                     "keydown"
-                    ,function (e) {
+                    ,
+                    function (e) {
                         var kc = e.keyCode;
 
                         // numpad support
-                        if(kc >= 96 && kc <= 105) {
+                        if (kc >= 96 && kc <= 105) {
                             kc = e.keyCode = kc - 48;
                         }
 
                         kval = parseInt(String.fromCharCode(kc));
 
                         if (isNaN(kval)) {
-
                             (kc !== 13)         // enter
                             && (kc !== 8)       // bs
                             && (kc !== 9)       // tab
@@ -498,8 +534,10 @@
 
                                 // long time keydown speed-up
                                 to = window.setTimeout(
-                                    function () { m*=2; }
-                                    ,30
+                                    function () {
+                                        m*=2; }
+                                    ,
+                                    30
                                 );
                             }
                         }
@@ -507,7 +545,8 @@
                 )
                 .bind(
                     "keyup"
-                    ,function (e) {
+                    ,
+                    function (e) {
                         if (isNaN(kval)) {
                             if (to) {
                                 window.clearTimeout(to);
@@ -533,7 +572,9 @@
             if (
                 this.v < this.o.min
                 || this.v > this.o.max
-            ) this.v = this.o.min;
+            ) {
+                this.v = this.o.min;
+            }
 
             this.$.val(this.v);
             this.w2 = this.o.width / 2;
@@ -557,14 +598,16 @@
             this.endAngle = 1.5 * Math.PI + this.angleOffset + this.angleArc;
 
             var s = max(
-                            String(Math.abs(this.o.max)).length
-                            , String(Math.abs(this.o.min)).length
-                            , 2
-                            ) + 2;
+                String(Math.abs(this.o.max)).length
+                            ,
+                String(Math.abs(this.o.min)).length
+                            ,
+                2
+            ) + 2;
 
             this.o.displayInput
                 && this.i.css({
-                        'width' : ((this.o.width / 2 + 4) >> 0) + 'px'
+                    'width' : ((this.o.width / 2 + 4) >> 0) + 'px'
                         ,'height' : ((this.o.width / 3) >> 0) + 'px'
                         ,'position' : 'absolute'
                         ,'vertical-align' : 'middle'
@@ -579,7 +622,7 @@
                         ,'-webkit-appearance': 'none'
                         })
                 || this.i.css({
-                        'width' : '0px'
+                    'width' : '0px'
                         ,'visibility' : 'hidden'
                         });
         };

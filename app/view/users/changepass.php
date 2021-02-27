@@ -8,14 +8,14 @@
         </div>
       </div>           
               <!--overview start-->
-			  <div class="row" style="margin-top: 20px;">
-				<div class="col-lg-12">
-					<ol class="breadcrumb">
-						<li><a href="index.html">User</a></li>
-						<li><i class="fa fa-arrow-up"></i>Update password</li>						  	
-					</ol>
-				</div>
-			  </div>
+              <div class="row" style="margin-top: 20px;">
+                <div class="col-lg-12">
+                    <ol class="breadcrumb">
+                        <li><a href="index.html">User</a></li>
+                        <li><i class="fa fa-arrow-up"></i>Update password</li>                          
+                    </ol>
+                </div>
+              </div>
 
 <!-- Form validations -->              
               <div class="row">
@@ -57,6 +57,6 @@
                     </div>
                </div>
 
-		  </section>
+          </section>
 </section>
 <?php require APPROOT .'/view/include/footer'. '.php';?>

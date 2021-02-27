@@ -1,4 +1,5 @@
-function initializeJS() {
+function initializeJS()
+{
 
     //tool tips
     jQuery('.tooltips').tooltip();
@@ -16,28 +17,30 @@ function initializeJS() {
     
     //sidebar dropdown menu
     jQuery('#sidebar .sub-menu > a').click(function () {
-        var last = jQuery('.sub-menu.open', jQuery('#sidebar'));        
+        var last = jQuery('.sub-menu.open', jQuery('#sidebar'));
         jQuery('.menu-arrow').removeClass('arrow_carrot-right');
         jQuery('.sub', last).slideUp(200);
         var sub = jQuery(this).next();
         if (sub.is(":visible")) {
-            jQuery('.menu-arrow').addClass('arrow_carrot-right');            
+            jQuery('.menu-arrow').addClass('arrow_carrot-right');
             sub.slideUp(200);
         } else {
-            jQuery('.menu-arrow').addClass('arrow_carrot-down');            
+            jQuery('.menu-arrow').addClass('arrow_carrot-down');
             sub.slideDown(200);
         }
         var o = (jQuery(this).offset());
         diff = 200 - o.top;
-        if(diff>0)
+        if (diff>0) {
             jQuery("#sidebar").scrollTo("-="+Math.abs(diff),500);
-        else
+        } else {
             jQuery("#sidebar").scrollTo("+="+Math.abs(diff),500);
+        }
     });
 
     // sidebar menu toggle
-    jQuery(function() {
-        function responsiveView() {
+    jQuery(function () {
+        function responsiveView()
+        {
             var wSize = jQuery(window).width();
             if (wSize <= 768) {
                 jQuery('#container').addClass('sidebar-close');
@@ -88,6 +91,6 @@ function initializeJS() {
 
 }
 
-jQuery(document).ready(function(){
+jQuery(document).ready(function () {
     initializeJS();
 });

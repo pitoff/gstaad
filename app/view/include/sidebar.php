@@ -1,5 +1,5 @@
           <!--sidebar start-->
-      <?php if($_SESSION['role'] == 1):?>
+      <?php if ($_SESSION['role'] == 1) :?>
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
@@ -10,7 +10,7 @@
                           <span>Dashboard</span>
                       </a>
                   </li>
-				          <li class="sub-menu">
+                          <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon_profile"></i>
                           <span>Users</span>
@@ -78,7 +78,7 @@
           </div>
       </aside>
       <!--sidebar end-->
-    <?php elseif($_SESSION['role'] == 2):?>
+      <?php elseif ($_SESSION['role'] == 2) :?>
             <aside>
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
@@ -124,4 +124,4 @@
               <!-- sidebar menu end-->
           </div>
       </aside>
-    <?php endif;?>
+      <?php endif;?>

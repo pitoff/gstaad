@@ -1,7 +1,7 @@
-	/*
-  	Flaticon icon font: Flaticon
-  	Creation date: 03/04/2019 06:02
-  	*/
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 03/04/2019 06:02
+    */
 
 @font-face {
   font-family: "Flaticon";
@@ -23,7 +23,7 @@
 }
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
   font-family: Flaticon;
         font-style: normal;
   font-weight: normal;

@@ -1,15 +1,18 @@
 var Script = function () {
 
-    $(".sparkline").each(function(){
+    $(".sparkline").each(function () {
         var $data = $(this).data();
 
         $data.valueSpots = {'0:': $data.spotColor};
 
-        $(this).sparkline( $data.data || "html", $data,
-        {
-            tooltipFormat: '<span style="display:block; padding:0px 10px 12px 0px;">' +
-            '<span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
-        });
+        $(this).sparkline(
+            $data.data || "html",
+            $data,
+            {
+                tooltipFormat: '<span style="display:block; padding:0px 10px 12px 0px;">' +
+                '<span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+            }
+        );
     });
 
     /* sparkline chart  */
@@ -29,7 +32,7 @@ var Script = function () {
         barColor: 'rgba(252,52,57,0.6)'
     });
     
-    // linechart    
+    // linechart
     $("#linechart").sparkline([1,5,3,7,9,3,6,4,7,9,7,6,2], {
         type: 'line',
         width: '300',

@@ -135,7 +135,7 @@
                             'width',
                             '100%'
                         );
-                }     
+                }
 
 
                 return that._trigger('sent', e, data);
@@ -169,7 +169,7 @@
                                         deferred.resolve();
 
                                         App.initFancybox(); //added by keenthemes
-                                        App.initUniform('.fileupload-checkbox');    //added by keenthemes   
+                                        App.initUniform('.fileupload-checkbox');    //added by keenthemes
                                     }
                                 );
                             }
@@ -392,7 +392,8 @@
                         'DownloadURL',
                         [type, name, url].join(':')
                     );
-                } catch (err) {}
+                } catch (err) {
+                }
             });
         },
 
