@@ -53,8 +53,7 @@
 			  		<div class="well well-sm">
 			  			<p>Name: <?php echo $data['user']->surname .' '. $data['user']->firstname;?></p>
 			  			<p>E-mail: <?php echo $data['user']->email;?></p>
-			  		
-			  		<a href="<?php echo URLROOT;?>/users/updateprofile/<?php echo $data['user']->id;?>"><button class="btn btn-primary" type="submit" style="margin-top: 10px;">Update profile</button></a>
+			  
 			  		</div>
 			  	</div>
 			  </div>
