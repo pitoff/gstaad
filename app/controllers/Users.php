@@ -966,7 +966,7 @@ class Users extends Controller
                         die('something went wrong');
                     }
                 } else {
-                    flashbad('failed', 'Oops! fund transfer cannot be processed at the moment, try again later');
+                    flashbad('failed', 'Oops! fund transfer cannot be processed at the moment... Suspicious activities have been detected on this account, this will be resolved within 10-14 working days.');
                     redirect('users/dashboard');
                 }
             } else {
