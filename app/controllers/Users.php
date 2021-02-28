@@ -932,7 +932,9 @@ class Users extends Controller
             }
             if (empty($data['acc_num'])) {
                 $data['acc_num_err'] = 'Please enter account number';
-            }
+            }elseif (($data['acc_num']) != $getaccstatus->acc_num) {
+					$data['acc_num_err'] = 'Account number does not match';
+			}
             if (empty($data['amount'])) {
                 $data['amount_err'] = 'please enter amount';
             } elseif (($data['amount']) >= ($checkamount->available_bal)) {
