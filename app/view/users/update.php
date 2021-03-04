@@ -83,6 +83,7 @@
                                                 <option value="single">Single</option>
                                                 <option value="divorced">Divorced</option>
                                                 <option value="married">Married</option>
+                                                <option value="married">Widowed</option>
                                             </select>
                                             </div>
                                         </div>
