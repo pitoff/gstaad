@@ -78,6 +78,7 @@ class Users extends Controller
         unset($_SESSION['role']);
         unset($_SESSION['firstname']);
         unset($_SESSION['surname']);
+        unset($_SESSION['email']);
         session_destroy();
         redirect('users/login');
     }
@@ -145,11 +146,12 @@ class Users extends Controller
             }
             if (empty($data['email'])) {
                 $data['email_err'] = 'Enter email address';
-            } else {
-                if ($this->userModel->findUserByEmail($data['email'])) {
-                    $data['email_err'] = 'Email is already taken';
-                }
-            }
+            } 
+//             else {
+//                 if ($this->userModel->findUserByEmail($data['email'])) {
+//                     $data['email_err'] = 'Email is already taken';
+//                 }
+//             }
             if (empty($data['password'])) {
                 $data['password_err'] = 'Please enter password';
             } elseif (strlen($data['password']) < 6) {
